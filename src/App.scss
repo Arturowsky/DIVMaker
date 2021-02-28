@@ -1,0 +1,430 @@
+// VARIABLES
+$bgColor: #f7f7f7;
+$bgRange: #eeeeee;
+$headerColor: #b94b9b;
+$fontSize: 0.7rem;
+
+body {
+    background: $bgColor;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    // overflow-X: hidden;
+}
+
+.container {
+    max-width: 100%;
+    height: 100%;
+    // margin: 0 auto;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+nav {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ccc;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    place-items: center;
+    box-shadow: 0px 3px 3px 3px rgba(0, 0, 0, 0.1);
+    z-index: 3;
+    position: sticky;
+    top: 0;
+    background: $bgColor;
+
+    .btn-group {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 5px;
+    }
+
+    div {
+        display: grid;
+        grid-template-columns: 70px 1fr;
+        justify-items: center;
+        align-items: center;
+    }
+}
+
+h1 {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    color: lighten($headerColor, 5%);
+
+    span {
+        color: darken($headerColor, 15%)
+    }
+}
+
+h4,
+p,
+button,
+option,
+select,
+label {
+    font-family: 'Roboto Mono', monospace;
+    margin: 2px;
+
+}
+
+select {
+    padding: 10px;
+}
+
+// RANGE
+
+
+.range {
+    display: grid;
+    width: 100%;
+    height: 100vh;
+    place-items: center;
+    grid-template-columns: 20% 80%;
+    border-bottom: 1px solid gray;
+
+
+    .settings {
+        background: $bgRange;
+        margin: 0 auto;
+        height: 100%;
+        z-index: 1;
+        display: block;
+        border-right: 1px dotted #ccc;
+
+        .settings-inner {
+            padding: 15px;
+        }
+
+        .settings-separator {
+            width: 100%;
+            height: 1px;
+            margin: 5px 0;
+            background: darken($bgRange, 25);
+        }
+    }
+
+    p,
+    label {
+        font-size: $fontSize;
+
+        span {
+            color: #9b9999;
+            font-size: $fontSize;
+        }
+    }
+
+    select {
+        width: 100%;
+        margin: 5px 0px;
+        padding: 10px;
+    }
+
+    option {
+        background: lightgray;
+    }
+
+    // Settings select styling
+    .dimensions,
+    .rgbaControls,
+    .setBorder,
+    .setBorderControls {
+        select {
+            padding: 0;
+            margin: 0;
+            background: darken($bgRange, 10);
+        }
+    }
+
+    .dimensions,
+    .rgbaControls,
+    .setBorder {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .setBorderIndividual {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: 1fr;
+
+        .setBorderControls {
+            display: grid;
+            gap: 5px;
+            grid-template-columns: 80px 40px 50px 1fr;
+        }
+    }
+
+    .skew,
+    .perspective {
+        border-bottom: 1px solid darken($bgRange, 20);
+        margin-top: 6px;
+        margin-bottom: 6px;
+
+        div {
+            display: grid;
+            grid-template-columns: 20px 1fr 20px 1fr;
+        }
+
+        input[type=range] {
+            width: auto;
+        }
+    }
+
+    .shadow-options {
+
+        display: grid;
+        grid-template-columns: repeat(8, 45px);
+        font-size: $fontSize;
+        margin: 4px 0px;
+        padding: 2px 0;
+        border-bottom: 1px solid darken($bgRange, 20);
+
+
+
+    }
+}
+
+.grayAndBlur {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+input[type=number] {
+    font-size: $fontSize;
+    background: $bgRange;
+    border: 1px solid darken($bgRange, 5);
+    padding: 4px;
+    color: darken($headerColor, 15%);
+
+    &:hover {
+        border: 1px solid darken($bgRange, 20);
+    }
+}
+
+// 1.Input styling
+
+input[type=range],
+input[type=color] {
+    width: 100%;
+}
+
+input[type=range]:hover,
+input[type=color]:hover {
+    cursor: pointer;
+}
+
+input[type=color] {
+    -webkit-appearance: none;
+    border: none;
+}
+
+input[type=color]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+input[type=color]::-webkit-color-swatch {
+    border: none;
+}
+
+// 2. Checkbox styling
+.shadowCheckbox {
+    display: flex;
+    align-items: center;
+    background: darken($bgColor, 10%);
+}
+
+// OUTPUT
+// .code {
+//     width: 100%;
+//     height: 100%;
+//     display: grid;
+//     grid-template-columns: 100%;
+// }
+.output {
+    background: $bgRange;
+}
+
+.codeOutput,
+.output {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+
+.codeOutput {
+    background: darken($bgRange, 10);
+
+    .codeOutput_lang {
+        margin: 30px 0;
+        padding: 15px;
+        border: 1px solid darken($bgRange, 10);
+
+        &:hover {
+            border: 1px solid $headerColor;
+        }
+    }
+
+    .colored_className {
+        font-size: 1.4rem;
+        color: darken($headerColor, 30);
+
+        span {
+            font-size: 1.6rem;
+            background: $headerColor;
+            color: whitesmoke;
+            padding: 0px 15px;
+        }
+    }
+
+    .colored:nth-child(odd) {
+        color: darken($headerColor, 10);
+        font-size: 1.4rem;
+    }
+
+    .colored:nth-child(even) {
+        color: lighten($headerColor, 10);
+        font-size: 1.4rem;
+    }
+}
+
+// FONT AWESOME
+.awsome {
+    color: rgb(165, 165, 165);
+    font-size: $fontSize;
+    margin: 0 3px;
+}
+
+.awsomeBtn {
+    font-size: 1.1rem;
+    margin-right: 0 3px;
+}
+
+// BUTTON
+.Link {
+    // width: 100%;
+    border: none;
+    padding: 10px;
+    background: $headerColor;
+    color: $bgRange;
+
+    &:hover {
+        background: darken($headerColor, 20%);
+        box-shadow: 0px 3px 3px 3px rgba(124, 79, 79, 0.1);
+        cursor: pointer;
+        transition: 0.2s ease;
+
+    }
+
+}
+
+.animatedLogo {
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr;
+    margin: 0 auto;
+    width: 100%;
+    height: calc(100vh - 90px);
+    background: $bgColor;
+    border-bottom: 1px solid #ccc;
+
+    .animatedCenter {
+        width: "50%";
+        display: grid;
+        place-items: center;
+        grid-template-columns: 1fr 1fr;
+        gap: 100px;
+    }
+
+    .logotype_desc {
+        h1 {
+            font-size: 5rem;
+            margin: 0;
+        }
+
+        h2 {
+            font-size: 3rem;
+            color: darken($bgColor, 30);
+            margin: 0;
+        }
+
+        h3 {
+            font-size: 2rem;
+
+
+            span {
+                color: darken($bgColor, 45);
+                text-decoration: 2px underline $headerColor;
+            }
+
+            span:before {
+                content: '';
+                animation: animate infinite 15s;
+            }
+
+            @keyframes animate {
+                0% {
+                    content: "dynamically"
+                }
+
+                33% {
+                    content: "quickly"
+                }
+
+                66% {
+                    content: "code free"
+                }
+            }
+        }
+    }
+}
+
+
+
+.svgPath:hover {
+    fill: lighten($headerColor, 10%);
+    cursor: pointer;
+
+}
+
+// GIT HUB SECTION
+.github {
+    width: 100%;
+    height: 90vh;
+    display: grid;
+    place-items: center;
+
+    .githubInner {
+        display: grid;
+        place-items: center;
+        grid-template-columns: 1fr;
+        gap: 50px;
+
+    }
+
+    .gitIcon {
+        font-size: 10rem;
+        color: $headerColor
+    }
+    a {
+        font-size: 2rem;
+        color: lightgray;
+    }
+}
+
+// FOOTER 
+footer {
+    margin: 0 auto;
+
+    p {
+        font-size: 1rem;
+        margin: 20px;
+    }
+}
