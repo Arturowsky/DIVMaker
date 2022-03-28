@@ -1,5 +1,5 @@
 <h1>DIVMaker</h1>
-<p>Live demo: http://arturlewandowicz.com/build/index.html</p>
+<p>Live demo: http://divmaker.arturlewandowicz.com/</p>
 <p>React based application - css generator</p>
 <p>App purpose is to use it on desktop device's</p>
 
